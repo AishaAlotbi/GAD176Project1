@@ -4,44 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    public float playerHealth;
+    public float playerMaxHealth = 100;
 
-    private Rigidbody2D rb;
-
-    private Vector2 movementDirection;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        playerHealth = playerMaxHealth;
+
+        Debug.Log("Player Health: " + playerHealth);
     }
 
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        GetInput();
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-
-    void GetInput()
-    {
-        // Handle player input
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        movementDirection = new Vector2(horizontalInput, verticalInput);
-    }
-
-    void Move()
-    {
-        if(!rb)
-        {
-            return;
-        }
-        // Move the character
-        rb.velocity = movementDirection * moveSpeed;
+        
     }
 }
