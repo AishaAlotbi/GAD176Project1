@@ -8,7 +8,7 @@ public class BaseEnemy : MonoBehaviour
     protected Player playerRefrence;
     [SerializeField] protected float health = 100;
     public Player player;
-    
+   
     protected virtual void Start()
     {
         playerRefrence = FindObjectOfType<Player>();
@@ -19,8 +19,8 @@ public class BaseEnemy : MonoBehaviour
     {
         //DetectPlayer();
 
-        
 
+        FollowPlayer(1f);
 
     }
 
@@ -70,10 +70,18 @@ public class BaseEnemy : MonoBehaviour
     }
 
 
-    protected virtual void FollowPlayer()
+    protected virtual void FollowPlayer(float moveSpeed)
     {
+        if(player == null)
+        {
+            return; 
+        }
 
 
-    }
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
+
+       
+    } 
 
 }
