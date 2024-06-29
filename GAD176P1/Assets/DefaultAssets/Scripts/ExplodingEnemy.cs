@@ -14,7 +14,7 @@ public class ExplodingEnemy : BaseEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.CompareTag("Player"))
+        if(collision.collider.CompareTag("Player")) //if an enemy collides with the player run the explode funtion then deal damage. 
         {
             Explode();
             DealDamage(10f);
@@ -23,7 +23,7 @@ public class ExplodingEnemy : BaseEnemy
         }
     }
 
-    protected void Explode()
+    protected void Explode() //explode function for ExplodingEnemy
     {
         Destroy(gameObject);
     }

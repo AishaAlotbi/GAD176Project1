@@ -43,7 +43,7 @@ public class BaseEnemy : MonoBehaviour
     */
 
 
-    protected virtual void DealDamage(float enemyDamage)
+    protected virtual void DealDamage(float enemyDamage) //basic damage dealt by enemies, alter for different enemies 
     {
 
         player.playerHealth -= enemyDamage;
@@ -70,7 +70,7 @@ public class BaseEnemy : MonoBehaviour
     }
 
 
-    protected virtual void FollowPlayer(float moveSpeed)
+    protected virtual void FollowPlayer(float moveSpeed) //follow the player, movement speed altered based on enemy 
     {
         if(player == null)
         {
