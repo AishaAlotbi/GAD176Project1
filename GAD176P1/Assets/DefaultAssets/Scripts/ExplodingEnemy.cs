@@ -9,7 +9,7 @@ public class ExplodingEnemy : BaseEnemy
     // Update is called once per frame
     protected override void Update()
     {
-        
+        FollowPlayer(2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,7 +27,7 @@ public class ExplodingEnemy : BaseEnemy
     {
         Destroy(gameObject);
     }
+
+
     
-
-
 }
