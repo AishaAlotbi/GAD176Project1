@@ -19,7 +19,7 @@ public class BaseEnemy : MonoBehaviour
     {
         //DetectPlayer();
 
-        DealDamage(1f);
+        
 
 
     }
@@ -46,25 +46,34 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void DealDamage(float enemyDamage)
     {
 
+        player.playerHealth -= enemyDamage;
 
-        if (playerRefrence)
-        {
-            if (Vector2.Distance(transform.position, playerRefrence.transform.position) < 1)
-            {
-                player.playerHealth -= enemyDamage;
-
-                Debug.Log("Player took damage!");
-                Debug.Log("Player Health " + player.playerHealth);
-                Debug.Log("Enemy Damage" + enemyDamage);
+        Debug.Log("Player took damage!");
+        Debug.Log("Player Health " + player.playerHealth);
+        Debug.Log("Enemy Damage" + enemyDamage);
 
 
-            }
 
-        }
-
-
-        
     }
 
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            
+            DealDamage(1f);
+
+
+        }
+    }
+
+
+    protected virtual void FollowPlayer()
+    {
+
+
+    }
 
 }
