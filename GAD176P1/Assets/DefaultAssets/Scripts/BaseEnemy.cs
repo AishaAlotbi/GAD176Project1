@@ -20,7 +20,7 @@ public class BaseEnemy : MonoBehaviour
         //DetectPlayer();
 
 
-        FollowPlayer(1f);
+        FollowPlayer(1.5f);
 
     }
 
