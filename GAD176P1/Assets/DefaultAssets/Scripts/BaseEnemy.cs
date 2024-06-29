@@ -6,12 +6,15 @@ public class BaseEnemy : MonoBehaviour
 {
 
     protected Player playerRefrence;
-    [SerializeField] protected float health = 100;
+    [SerializeField] protected float enemyHealth;
     public Player player;
+    
    
     protected virtual void Start()
     {
+        enemyHealth = 5f;
         playerRefrence = FindObjectOfType<Player>();
+        
     }
 
    
@@ -21,6 +24,7 @@ public class BaseEnemy : MonoBehaviour
 
 
         FollowPlayer(1.5f);
+        
 
     }
 
@@ -82,6 +86,13 @@ public class BaseEnemy : MonoBehaviour
         transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
 
        
-    } 
+    }
+
+
+    public void TakeDamage(float bulletDamage)
+    {
+        enemyHealth -= bulletDamage;
+
+    }
 
 }

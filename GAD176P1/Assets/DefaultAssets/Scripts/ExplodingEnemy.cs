@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ExplodingEnemy : BaseEnemy
 {
-    
 
+    protected override void Start()
+    {
+        enemyHealth = 10f;
+    }
     // Update is called once per frame
     protected override void Update()
     {
@@ -22,6 +25,15 @@ public class ExplodingEnemy : BaseEnemy
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            TakeDamage(5f);
+        }
+    }
+
 
     protected void Explode() //explode function for ExplodingEnemy
     {
