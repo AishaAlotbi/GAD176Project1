@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb382e30e81e3437f901e64f31bca9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  enemyHealth: 0
   player: {fileID: 0}
+  particleEffect: {fileID: 5839995929866520160, guid: 1912a6115e8134175b325b6ac42c3974, type: 3}
 --- !u!58 &3648296660384731240
 CircleCollider2D:
   m_ObjectHideFlags: 0

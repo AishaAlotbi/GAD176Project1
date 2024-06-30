@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExplodingEnemy : BaseEnemy
 {
+    [SerializeField] protected ParticleSystem deathEffect;
 
     protected override void Start()
     {
@@ -38,6 +39,7 @@ public class ExplodingEnemy : BaseEnemy
 
     protected void Explode() //explode function for ExplodingEnemy
     {
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

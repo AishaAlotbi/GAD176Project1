@@ -8,6 +8,7 @@ public class BaseEnemy : MonoBehaviour
     protected Player playerRefrence;
     [SerializeField] protected float enemyHealth;
     public Player player;
+    [SerializeField] protected ParticleSystem particleEffect;
     
    
     protected virtual void Start()
@@ -83,13 +84,23 @@ public class BaseEnemy : MonoBehaviour
     {
         enemyHealth -= bulletDamage;
         Debug.Log("enemy health " + enemyHealth);
-        if (enemyHealth<= 0)
+        if (enemyHealth <= 0)
         {
-
-            Destroy(gameObject);
-
+            Die();
         }
 
+           
+    }
+
+    public void Die()
+    {
+
+
+        Instantiate(particleEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+
+
+        
     }
 
     
