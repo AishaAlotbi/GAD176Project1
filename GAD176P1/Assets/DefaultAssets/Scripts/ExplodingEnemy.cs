@@ -8,8 +8,11 @@ public class ExplodingEnemy : BaseEnemy
     protected override void Start()
     {
         enemyHealth = 10f;
+
+        Debug.Log("Exploding Enemy HP " + enemyHealth);
     }
-    // Update is called once per frame
+
+
     protected override void Update()
     {
         FollowPlayer(2f);
@@ -23,14 +26,6 @@ public class ExplodingEnemy : BaseEnemy
             DealDamage(10f);
 
 
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Bullet"))
-        {
-            TakeDamage(5f);
         }
     }
 

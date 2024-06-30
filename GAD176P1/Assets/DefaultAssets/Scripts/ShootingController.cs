@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    [SerializeField] GameObject bullet;
-    [SerializeField] GameObject spawnPoint;
+    public GameObject bulletPrefab;
+    public GameObject spawnPoint;
     
 
     
@@ -17,21 +17,23 @@ public class ShootingController : MonoBehaviour
     
     void Update()
     {
-        FireBullet();
+        if (Input.GetMouseButtonDown(0))
+        {
+            FireBullet();
+        }
+            
+
+               
     }
 
 
     void FireBullet()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bullet, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        
+        
+       Instantiate(bulletPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
             
 
-            
-   
-
-        }
 
     }
 

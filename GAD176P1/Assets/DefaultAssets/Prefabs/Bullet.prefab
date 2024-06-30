@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4827266681939631127}
   - component: {fileID: 1488641357340901064}
   - component: {fileID: 5431379082215879348}
+  - component: {fileID: 2378755569730550793}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 38382c7de45dd4026993beea67b007df, type: 3}
   m_Color: {r: 0.95000005, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -133,3 +134,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0a0f1fc1ee54ae48df32c2c773eb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+--- !u!50 &2378755569730550793
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109239551795371212}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

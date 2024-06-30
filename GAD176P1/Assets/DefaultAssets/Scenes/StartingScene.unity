@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ee33649edde49ecb4c8e5c4650cf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7109239551795371212, guid: 4a17960cc825e4930954013b76c91b69, type: 3}
+  bulletPrefab: {fileID: 7109239551795371212, guid: 4a17960cc825e4930954013b76c91b69, type: 3}
   spawnPoint: {fileID: 1547526084}
 --- !u!1 &1455568515
 GameObject:
@@ -1164,6 +1164,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603420361026606129, guid: dbf6595fa3f254dd9abb98568c711216, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5818241001574875082, guid: dbf6595fa3f254dd9abb98568c711216, type: 3}
       propertyPath: m_Name
       value: ExplodingEnemy
@@ -1225,6 +1229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1183674219733325807, guid: c8b000f37b38f4dc6a4ffde2644e52b5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1681391867977525370, guid: c8b000f37b38f4dc6a4ffde2644e52b5, type: 3}
       propertyPath: m_Name
       value: BaseEnemy

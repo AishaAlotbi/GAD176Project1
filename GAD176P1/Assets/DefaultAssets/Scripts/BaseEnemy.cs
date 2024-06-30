@@ -12,7 +12,8 @@ public class BaseEnemy : MonoBehaviour
    
     protected virtual void Start()
     {
-        enemyHealth = 5f;
+        enemyHealth = 10f;
+        Debug.Log("BaseEnemy HP " + enemyHealth);
         playerRefrence = FindObjectOfType<Player>();
         
     }
@@ -20,7 +21,7 @@ public class BaseEnemy : MonoBehaviour
    
     protected virtual void Update()
     {
-        //DetectPlayer();
+        
 
 
         FollowPlayer(1.5f);
@@ -29,22 +30,7 @@ public class BaseEnemy : MonoBehaviour
     }
 
 
-    /*protected void DetectPlayer()
-    {
-        if (playerRefrence)
-        {
-            if (Vector2.Distance(transform.position, playerRefrence.transform.position) < 1)
-            {
-
-                Debug.Log("Found Player");
-                
-
-            }
-
-        }
-
-    }
-    */
+    
 
 
     protected virtual void DealDamage(float enemyDamage) //basic damage dealt by enemies, alter for different enemies 
@@ -52,9 +38,10 @@ public class BaseEnemy : MonoBehaviour
 
         player.playerHealth -= enemyDamage;
 
-        Debug.Log("Player took damage!");
+       
         Debug.Log("Player Health " + player.playerHealth);
         Debug.Log("Enemy Damage" + enemyDamage);
+       
 
 
 
@@ -62,7 +49,7 @@ public class BaseEnemy : MonoBehaviour
 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //damage dealt when player collides with enemy 
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -71,8 +58,11 @@ public class BaseEnemy : MonoBehaviour
 
 
         }
+
+        
     }
 
+    
 
     protected virtual void FollowPlayer(float moveSpeed) //follow the player, movement speed altered based on enemy 
     {
@@ -92,6 +82,13 @@ public class BaseEnemy : MonoBehaviour
     public void TakeDamage(float bulletDamage)
     {
         enemyHealth -= bulletDamage;
+        Debug.Log("enemy health " + enemyHealth);
+        if (enemyHealth<= 0)
+        {
+
+            Destroy(gameObject);
+
+        }
 
     }
 
