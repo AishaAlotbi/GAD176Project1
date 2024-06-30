@@ -15,6 +15,7 @@ public class BaseEnemy : MonoBehaviour
     {
 
         GameObject playerRefrence = GameObject.FindGameObjectWithTag("Player");
+
         if (playerRefrence != null)
         {
             player = playerRefrence.GetComponent<Player>();
@@ -34,49 +35,64 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
-
-    protected virtual void DealDamage(float enemyDamage) //basic damage dealt by enemies, alter for different enemies 
-    {
-
-        player.playerHealth -= enemyDamage;
-
-       
-        Debug.Log("Player Health " + player.playerHealth);
-        Debug.Log("Enemy Damage" + enemyDamage);
-       
-
-
-
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision) //damage dealt when player collides with enemy 
     {
         if (collision.collider.CompareTag("Player"))
         {
-            
+
             DealDamage(1f);
 
 
         }
 
-        
+
     }
 
-    
-    protected virtual void FollowPlayer(float moveSpeed) //follow the player, movement speed altered based on enemy 
+
+
+
+
+
+
+
+    protected virtual void DealDamage(float enemyDamage) //basic damage dealt by enemies, alter for different enemies 
     {
-        if(player == null)
+        if (player != null)
         {
-            return; 
+            player.playerHealth -= enemyDamage;
+
+
+            Debug.Log("Player Health " + player.playerHealth);
+            Debug.Log("Enemy Damage" + enemyDamage);
+        }
+       else
+        {
+            Debug.LogWarning("player refrence not found");
         }
 
-        FindObjectOfType<Player>();
 
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
 
-       
+    }
+
+
+    protected virtual void FollowPlayer(float moveSpeed) //follow the player, movement speed altered based on enemy 
+    {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>();
+
+
+            
+            
+        }
+
+        if (player != null)
+        {
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
+
+        }
+
     }
 
 
