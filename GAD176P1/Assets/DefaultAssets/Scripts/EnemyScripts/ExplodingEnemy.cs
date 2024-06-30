@@ -37,6 +37,8 @@ public class ExplodingEnemy : BaseEnemy
     }
 
 
+
+
     private void Explode() //explode function for ExplodingEnemy
     {
         Instantiate(deathEffect, transform.position, transform.rotation);
