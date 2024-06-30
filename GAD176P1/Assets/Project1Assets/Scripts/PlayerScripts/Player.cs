@@ -6,7 +6,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public float playerHealth; 
-    public float playerMaxHealth = 100;
+    private float playerMaxHealth = 100;
     [SerializeField] TMP_Text healthText;
     [SerializeField] TMP_Text deathText;
 

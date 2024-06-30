@@ -30,7 +30,7 @@ public class ExplodingEnemy : BaseEnemy
         if(collision.collider.CompareTag("Player")) //if an enemy collides with the player run the explode funtion then deal damage. 
         {
             Explode();
-            DealDamage(10f);
+            DealDamage(15f);
 
 
         }

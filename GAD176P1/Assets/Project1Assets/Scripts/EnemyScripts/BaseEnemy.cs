@@ -40,7 +40,7 @@ public class BaseEnemy : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
 
-            DealDamage(1f);
+            DealDamage(5f);
 
 
         }
@@ -108,7 +108,7 @@ public class BaseEnemy : MonoBehaviour
            
     }
 
-    public void Die()
+    protected void Die()
     {
 
 
