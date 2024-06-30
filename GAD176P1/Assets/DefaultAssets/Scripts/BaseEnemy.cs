@@ -12,9 +12,16 @@ public class BaseEnemy : MonoBehaviour
    
     protected virtual void Start()
     {
+
+        GameObject playerRefrence = GameObject.FindGameObjectWithTag("Player");
+        if (playerRefrence != null)
+        {
+            player = playerRefrence.GetComponent<Player>();
+        }
+
         enemyHealth = 10f;
         Debug.Log("BaseEnemy HP " + enemyHealth);
-        playerRefrence = FindObjectOfType<Player>();
+        
         
     }
 
@@ -22,15 +29,9 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void Update()
     {
         
-
-
         FollowPlayer(1.5f);
         
-
     }
-
-
-    
 
 
     protected virtual void DealDamage(float enemyDamage) //basic damage dealt by enemies, alter for different enemies 
@@ -48,7 +49,6 @@ public class BaseEnemy : MonoBehaviour
     }
 
 
-
     private void OnCollisionEnter2D(Collision2D collision) //damage dealt when player collides with enemy 
     {
         if (collision.collider.CompareTag("Player"))
@@ -63,7 +63,6 @@ public class BaseEnemy : MonoBehaviour
     }
 
     
-
     protected virtual void FollowPlayer(float moveSpeed) //follow the player, movement speed altered based on enemy 
     {
         if(player == null)
@@ -71,6 +70,7 @@ public class BaseEnemy : MonoBehaviour
             return; 
         }
 
+        FindObjectOfType<Player>();
 
         Vector2 direction = (player.transform.position - transform.position).normalized;
         transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
@@ -91,5 +91,7 @@ public class BaseEnemy : MonoBehaviour
         }
 
     }
+
+    
 
 }

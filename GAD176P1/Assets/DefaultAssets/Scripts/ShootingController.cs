@@ -6,14 +6,7 @@ public class ShootingController : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject spawnPoint;
-    
-
-    
-    void Start()
-    {
-       
-    }
-
+   
     
     void Update()
     {
@@ -21,27 +14,15 @@ public class ShootingController : MonoBehaviour
         {
             FireBullet();
         }
-            
-
-               
+             
     }
 
 
     void FireBullet()
     {
-        
-        
-       Instantiate(bulletPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-            
 
+       Instantiate(bulletPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
 
     }
-
-
-
-
-
-
-
 
 }

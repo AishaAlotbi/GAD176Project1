@@ -7,7 +7,13 @@ public class ExplodingEnemy : BaseEnemy
 
     protected override void Start()
     {
-        enemyHealth = 10f;
+        GameObject playerRefrence = GameObject.FindGameObjectWithTag("Player");
+        if (playerRefrence != null)
+        {
+            player = playerRefrence.GetComponent<Player>();
+        }
+
+        enemyHealth = 20f;
 
         Debug.Log("Exploding Enemy HP " + enemyHealth);
     }
